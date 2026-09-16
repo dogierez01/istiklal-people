@@ -372,8 +372,9 @@
             });
             
             // Load first track into player without playing
+            // Use encodeURI so the browser correctly finds files with Turkish characters
             if (tracks.length > 0) {
-                audio.src = tracks[0];
+                audio.src = encodeURI(tracks[0]);
                 currentTitleEl.textContent = formatTitle(tracks[0]);
                 updateActiveTrackRow(0);
             }
@@ -393,7 +394,8 @@
 
         function loadTrack(index) {
             currentTrackIndex = index;
-            audio.src = tracks[index];
+            // Use encodeURI so the browser correctly finds files with Turkish characters
+            audio.src = encodeURI(tracks[index]);
             currentTitleEl.textContent = formatTitle(tracks[index]);
             updateActiveTrackRow(index);
         }
